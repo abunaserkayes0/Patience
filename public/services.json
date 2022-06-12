@@ -17,28 +17,28 @@
     "id": 3,
     "name": "article writing",
     "price": 39,
-    "image": "",
-    "description": ""
+    "image": "https://i.ibb.co/h7hm5fq/publish-article-concept-illustration-114360-4926.png",
+    "description": "An article writing is a kind of writing that is written to reach a massive audience with the help of the press. In the case of article writing, the press refers to publishing houses of newspapers, magazines, journals, etc. Writing a newspaper article, or writing a magazine article is not easy."
   },
   {
     "id": 4,
     "name": "caption writing",
     "price": 47,
-    "image": "",
-    "description": ""
+    "image": "https://i.ibb.co/YXjfhJD/social-media-creativity-concepts-with-hashtag-sign.png",
+    "description": "Captions should add new information. Don't merely repeat the story headline or summary, and avoid stating the obvious elements that are captured in the image. The caption should add context to the image, not just duplicate what the reader already sees. Always identify the main people in the photograph.May"
   },
   {
     "id": 5,
     "name": "script writing",
     "price": 49,
-    "image": "",
-    "description": ""
+    "image": "https://i.ibb.co/xh7fXGy/business-women-signature-document-1388-90.png",
+    "description": "Screenwriting or scriptwriting is the art and craft of writing scripts for mass media such as feature films, television productions or video games. It is often a freelance profession."
   },
   {
     "id": 6,
     "name": "Technical writer",
     "price": 21,
-    "image": "",
-    "description": ""
+    "image": "https://i.ibb.co/8gRYsW7/contact-us-help-business-consulting-support-53876.png",
+    "description": "Technical writing is a type of writing where the author is writing about a particular subject that requires direction, instruction, or explanation. This style of writing has a very different purpose and different characteristics than other writing styles such as creative writing, academic writing or business writing."
   }
 ]
