@@ -1,0 +1,7 @@
+h1 {
+  font-size: 4rem;
+}
+.constant-border {
+  border-top: 2px solid;
+  width: 50px;
+}
