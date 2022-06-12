@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SocialAccount from "../SocialAccount/SocialAccount";
 import "./Resister.css";
 
 const Resister = () => {
@@ -39,6 +40,7 @@ const Resister = () => {
           </span>
         </p>
       </Form>
+      <SocialAccount></SocialAccount>
     </div>
   );
 };

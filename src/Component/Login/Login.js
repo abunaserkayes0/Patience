@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SocialAccount from "../SocialAccount/SocialAccount";
 import "./Login.css";
 const Login = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Login = () => {
           </span>
         </p>
       </Form>
+      <SocialAccount></SocialAccount>
     </div>
   );
 };
