@@ -6,17 +6,14 @@ import {
 import auth from "../../firebase.init";
 import "./SocialAccount.css";
 const SocialAccount = () => {
-  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-  const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [signInWithGithub] = useSignInWithGithub(auth);
   const handelGoogleSignIn = () => {
     signInWithGoogle();
   };
   const handelGithubSignIn = () => {
     signInWithGithub();
   };
-  if (googleUser||githubUser){
-    console.log(googleUser||githubUser);
-  }
   return (
     <div className="d-flex flex-column justify-content-center align-items-center gap-3">
       <Button onClick={handelGoogleSignIn}>

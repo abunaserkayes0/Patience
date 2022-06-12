@@ -5,6 +5,7 @@ import Footer from './Component/Footer/Footer';
 import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
 import Navigation from './Component/Navigation/Navigation';
+import NotFound from './Component/NotFound/NotFound';
 import Resister from './Component/Resister/Resister';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/resister' element={<Resister></Resister>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
