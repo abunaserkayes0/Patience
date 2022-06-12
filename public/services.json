@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "website content",
+    "price": 19,
+    "image": "https://i.ibb.co/wQv08rB/copywriting-services.png",
+    "description": "A Website content writer or web content writer is a person who specializes in providing relevant content for websites. Every website has a specific target audience and requires the most relevant content to attract business."
+  },
+  {
+    "id": 2,
+    "name": "blog writing",
+    "price": 29,
+    "image": "https://i.ibb.co/fSwGRvB/writer-writes-document-journalist-create-storytell.png",
+    "description": "Blogging refers to writing, photography, and other media that's self-published online. Blogging started as an opportunity for individuals to write diary-style entries, but it has since been incorporated into websites for many businesses."
+  },
+  {
+    "id": 3,
+    "name": "article writing",
+    "price": 39,
+    "image": "",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "caption writing",
+    "price": 47,
+    "image": "",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "script writing",
+    "price": 49,
+    "image": "",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "Technical writer",
+    "price": 21,
+    "image": "",
+    "description": ""
+  }
+]

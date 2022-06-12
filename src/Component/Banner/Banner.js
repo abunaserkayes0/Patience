@@ -1,3 +1,5 @@
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./Banner.css";
 const Banner = () => {
@@ -20,7 +22,7 @@ const Banner = () => {
               Content writing is the process of planning, writing and editing
               web content, typically for digital marketing purposes.
             </p>
-            <Button className="bg-primary">Say Hello</Button>
+            <Button className="banner-button bg-primary fw-bold fs-4">Say Hello <FontAwesomeIcon icon={faArrowRightLong}></FontAwesomeIcon></Button>
           </Col>
           <Col sm={12} md={4} lg={4}>
             <div>
