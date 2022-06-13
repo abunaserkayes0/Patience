@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./Component/About/About";
+import Blog from "./Component/Blog/Blog";
 import CheckOut from "./Component/CheckOut/CheckOut";
 import Footer from "./Component/Footer/Footer";
 import Home from "./Component/Home/Home";
@@ -28,6 +29,7 @@ function App() {
           }
         ></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path='/blogs' element={<Blog></Blog>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

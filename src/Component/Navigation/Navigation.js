@@ -20,8 +20,8 @@ const Navigation = () => {
               <Nav.Link as={Link} className="fw-bold text-white" to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} className="fw-bold text-white" to="/service">
-                Service
+              <Nav.Link as={Link} className="fw-bold text-white" to="/blogs">
+                Blogs
               </Nav.Link>
               <Nav.Link as={Link} className="fw-bold text-white" to="/about">
                 About
