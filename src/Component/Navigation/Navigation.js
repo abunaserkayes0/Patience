@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 import logo from "../../images/logo.png";
 import "./Navigation.css";
 const Navigation = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">

@@ -1,9 +1,22 @@
+import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import SocialAccount from "../SocialAccount/SocialAccount";
 import "./Login.css";
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [user] = useAuthState(auth);
+  const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [from,navigate,user]);
+
   const navigateResisterPage = () => {
     navigate("/resister");
   };
