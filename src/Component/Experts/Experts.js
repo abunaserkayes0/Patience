@@ -5,12 +5,12 @@ const Experts = () => {
     <div>
       <Container>
         <h2 className="text-center text-uppercase fw-bold fs-1 py-3">
-          Our <span className="text-primary">Ex</span>parts
+          My <span className="text-primary">Ex</span>par<span className="text-primary">ts</span> Team
         </h2>
         <Row sm={1} md={2} lg={4} className="g-3 my-3">
           <div>
             <Col>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Img
                   height="450"
                   variant="top"
@@ -25,7 +25,7 @@ const Experts = () => {
           </div>
           <div>
             <Col>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Img
                   height="450"
                   variant="top"
@@ -40,7 +40,7 @@ const Experts = () => {
           </div>
           <div>
             <Col>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Img
                   height="450"
                   variant="top"
@@ -55,7 +55,7 @@ const Experts = () => {
           </div>
           <div>
             <Col>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Img
                   height="450"
                   variant="top"

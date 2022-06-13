@@ -17,19 +17,21 @@ const Login = () => {
   const passwordRef = useRef("");
   const navigate = useNavigate();
   const location = useLocation();
-
+  // firebase-hooks-function
   const [user] = useAuthState(auth);
   const [signInWithEmailAndPassword, signInUser, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  // RequiredAuth-Element
   const from = location.state?.from?.pathname || "/";
-
+  // From-submit-handel
   const handelSignInFormSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
   };
+  // Handel-Reset-password
   const handelResetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
@@ -38,16 +40,18 @@ const Login = () => {
     }
     toast.danger("Please Input Your Email");
   };
+  // users info
   useEffect(() => {
     if (user || signInUser) {
       navigate(from, { replace: true });
     }
   }, [from, navigate, user, signInUser]);
+  // error-massage implement
   let errorMessage;
   if (error) {
     errorMessage = <p className="text-danger">{error?.message}</p>;
   }
-
+  // Spinner
   if (loading || sending) {
     return <Loading></Loading>;
   }

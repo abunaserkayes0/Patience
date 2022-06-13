@@ -10,11 +10,12 @@ import Loading from "../Loading/Loading";
 import SocialAccount from "../SocialAccount/SocialAccount";
 import "./Resister.css";
 const Resister = () => {
+  
   const [userError, setUserError] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
-
+  // firebase-hooks-function
   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -22,6 +23,7 @@ const Resister = () => {
   const navigateLoginPage = () => {
     navigate("/login");
   };
+  // From-submit-handel
   const handelSignUpFromSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -34,10 +36,11 @@ const Resister = () => {
     await createUserWithEmailAndPassword(email, password);
     navigate("/");
   };
-
+  // Spinner
   if (loading || sending) {
     return <Loading></Loading>;
   }
+// error-message
   let errorElement;
   if (error) {
     errorElement = <p className="text-danger">{error.message}</p>;
