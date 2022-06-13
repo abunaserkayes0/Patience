@@ -32,8 +32,11 @@ const Login = () => {
   };
   const handelResetPassword = async () => {
     const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    toast.success("Reset Mail");
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("Reset Mail");
+    }
+    toast.danger("Please Input Your Email");
   };
   useEffect(() => {
     if (user || signInUser) {
