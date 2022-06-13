@@ -1,23 +1,26 @@
+import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import {
   useSignInWithGithub,
   useSignInWithGoogle
 } from "react-firebase-hooks/auth";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import Loading from '../Loading/Loading';
+import Loading from "../Loading/Loading";
 import "./SocialAccount.css";
 const SocialAccount = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
-  if(googleUser||githubUser){
-    navigate('/home')
-  }
-  if(googleLoading||githubLoading){
-    return <Loading></Loading>
+  useEffect(() => {
+    if (googleUser || githubUser) {
+      navigate("/home");
+    }
+  }, [githubUser, googleUser, navigate]);
+  if (googleLoading || githubLoading) {
+    return <Loading></Loading>;
   }
   let errorElement;
   if (githubError || googleError) {

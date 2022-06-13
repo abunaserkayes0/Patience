@@ -2,9 +2,12 @@ import { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword
 } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import SocialAccount from "../SocialAccount/SocialAccount";
@@ -12,14 +15,13 @@ import "./Login.css";
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
-
   const navigate = useNavigate();
   const location = useLocation();
 
   const [user] = useAuthState(auth);
-  const [signInWithEmailAndPassword,loading, error] =
+  const [signInWithEmailAndPassword, signInUser, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const from = location.state?.from?.pathname || "/";
 
   const handelSignInFormSubmit = (e) => {
@@ -28,17 +30,23 @@ const Login = () => {
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
   };
+  const handelResetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    toast.success("Reset Mail");
+  };
   useEffect(() => {
-    if (user) {
+    if (user || signInUser) {
       navigate(from, { replace: true });
     }
-  }, [from, navigate, user]);
-  let errorMassage;
+  }, [from, navigate, user, signInUser]);
+  let errorMessage;
   if (error) {
-    errorMassage = <p className=" text-danger">{error.message}</p>;
+    errorMessage = <p className="text-danger">{error?.message}</p>;
   }
-  if (loading) {
-    return <Loading></Loading>
+
+  if (loading || sending) {
+    return <Loading></Loading>;
   }
   const navigateResisterPage = () => {
     navigate("/resister");
@@ -66,10 +74,7 @@ const Login = () => {
             required
           />
         </Form.Group>
-        {errorMassage}
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
+
         <p>
           Create New Account?
           <span
@@ -80,8 +85,16 @@ const Login = () => {
             Resister
           </span>
         </p>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+        <p role="button" onClick={handelResetPassword}>
+          Forgotten Password?
+        </p>
+        {errorMessage}
       </Form>
       <SocialAccount></SocialAccount>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

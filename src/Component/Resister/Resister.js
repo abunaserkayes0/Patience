@@ -1,18 +1,23 @@
 import { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification
+} from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import SocialAccount from "../SocialAccount/SocialAccount";
 import "./Resister.css";
 const Resister = () => {
-  const [createUserWithEmailAndPassword, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
   const [userError, setUserError] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
+
+  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const navigateLoginPage = () => {
     navigate("/login");
@@ -21,19 +26,24 @@ const Resister = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    if (password.length < 6) {
+    if (password.length < 8) {
       setUserError("Password Must be greater 6 character");
       return;
     }
+    await sendEmailVerification(auth);
     await createUserWithEmailAndPassword(email, password);
     navigate("/");
   };
-  if (loading) {
-    return <Loading></Loading>
+
+  if (loading || sending) {
+    return <Loading></Loading>;
   }
   let errorElement;
   if (error) {
-    errorElement=<p className="text-danger">{error.message}</p>
+    errorElement = <p className="text-danger">{error.message}</p>;
+  }
+  if (user){
+    console.log(user);
   }
   return (
     <>
