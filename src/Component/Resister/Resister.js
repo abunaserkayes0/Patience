@@ -29,7 +29,7 @@ const Resister = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     if (password.length < 8) {
-      setUserError("Password Must be greater 6 character");
+      setUserError("Password Must be greater 8 character");
       return;
     }
     await sendEmailVerification(auth);
